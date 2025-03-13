@@ -1,64 +1,66 @@
+import 'dart:io';
+
 //////////////SYNTAX FOR DART //////////////
-void main() {
-  //1)
-  // print('Program for adding two numbers');
-  // var a = 10;
-  // var b = 20;
+// void main() {
+//1)
+// print('Program for adding two numbers');
+// var a = 10;
+// var b = 20;
 
-  // print('Sum=${a + b}');
+// print('Sum=${a + b}');
 
-  //2)
-  // print("adding two numbers by getting input from user");
-  // var input1 = stdin.readLineSync();
-  // var input2 = stdin.readLineSync();
+//2)
+// print("adding two numbers by getting input from user");
+// var input1 = stdin.readLineSync();
+// var input2 = stdin.readLineSync();
 
-  // var num1 = int.parse(input1!);
-  // var num2 = int.parse(input2!);
+// var num1 = int.parse(input1!);
+// var num2 = int.parse(input2!);
 
-  // print("sum ${num1 + num2}");
+// print("sum ${num1 + num2}");
 
-  /////////// contorl statement///////////////////
-  //used to find the number is positive or negative
+/////////// contorl statement///////////////////
+//used to find the number is positive or negative
 
-  // var num = 7;
+// var num = 7;
 
-  // if (num == 0) {
-  //   print("Zero");
-  // } else if (num < 0) {
-  //   print("Negative");
-  // } else {
-  //   print("Positive");
-  // }
+// if (num == 0) {
+//   print("Zero");
+// } else if (num < 0) {
+//   print("Negative");
+// } else {
+//   print("Positive");
+// }
 
-  //////////for loop///////////////
+//////////for loop///////////////
 
-  // for (var i = 0; i < 10; i++) {
-  //   print(i);
-  //}
+// for (var i = 0; i < 10; i++) {
+//   print(i);
+//}
 
-  ////indexing in nested list/////
+////indexing in nested list/////
 
-  // var list = [[1,2,3],[4,5,6]];
-  // print(list[1][1]);
+// var list = [[1,2,3],[4,5,6]];
+// print(list[1][1]);
 
-  ///calling the function////
-  // Sum(5, 5);
+///calling the function////
+// Sum(5, 5);
 
-  // var sum = SumReturn(4, 5);
-  // print(sum);
+// var sum = SumReturn(4, 5);
+// print(sum);
 
 //////for loop///////
-  // for (int i = 1; i <= 20; i++) {
-  //   if (i % 5 == 0) {
-  //     print("fizz");
-  //   } else if (i % 3 == 0) {
-  //     print("Buzz");
-  //   } else {
-  //     print(i);
-  //   }
-  // }
+// for (int i = 1; i <= 20; i++) {
+//   if (i % 5 == 0) {
+//     print("fizz");
+//   } else if (i % 3 == 0) {
+//     print("Buzz");
+//   } else {
+//     print(i);
+//   }
+// }
 
-  ///writng funtion outside the program///
+///writng funtion outside the program///
 // void Sum(int a, int b) {
 //   print(a + b);
 // }
@@ -73,22 +75,45 @@ void main() {
 // input=[1,2,3];
 // output=[1,2,4];
 
-  // List<int> input = [1, 2, 4];
-  // int count = 0;
-  // for (int i = 0; i < input.length; i++) {
-  //   count += 1;
-  //   print(count);
-  // }
+// List<int> input = [1, 2, 4];
+// int count = 0;
+// for (int i = 0; i < input.length; i++) {
+//   count += 1;
+//   print(count);
+// }
 
+//   print(incrementArray([1, 2, 3])); // Output: [1, 2, 4]
+//   print(incrementArray([9, 9, 9])); // Output: [1, 0, 0, 0]
 
+// }
+// List<int> incrementArray(List<int> arr) {
+//   BigInt number = BigInt.parse(arr.join());
+//   number += BigInt.one;
+//   return number.toString().split('').map(int.parse).toList();
+// }
 
-  print(incrementArray([1, 2, 3])); // Output: [1, 2, 4]
-  print(incrementArray([9, 9, 9])); // Output: [1, 0, 0, 0]
+void main() {
+//leetcode=21 merge sort
+  
+// Input: list1 = [1,2,4], list2 = [1,3,4]
+// Output: [1,1,2,3,4,4]
 
+  List<int> list1 = [1, 2, 4];
+  List<int> list2 = [1, 3, 4];
 
-}
-List<int> incrementArray(List<int> arr) {
-  BigInt number = BigInt.parse(arr.join()); 
-  number += BigInt.one; 
-  return number.toString().split('').map(int.parse).toList(); 
+  List<int> newlist = list1 + list2;
+
+  int i, j;
+  for (i = 0; i < newlist.length; i++) {
+    //controll the loop
+    for (j = 0; j < newlist.length - 1; j++) {
+       //number of comapring
+      if (newlist[j] > newlist[j + 1]) {
+        var temp = newlist[j];
+        newlist[j] = newlist[j + 1];
+        newlist[j + 1] = temp;
+      }
+    }
+    print(newlist);
+  }
 }
